@@ -12,3 +12,6 @@ local.properties
 coverage
 package-lock.json
 yarn.lock
+
+# TVirl
+.nyc_output
