@@ -449,6 +449,13 @@ export function subSelectQuery(query: string, filter?: string[]): string {
 }
 
 function qualifyFieldName(prefix: string[], name: string): string {
+  // TVirl
+  // "Fields must contain only letters, numbers, and underscores,
+  //  start with a letter or underscore, and be at most 128 characters long."
+  const notAlphaDigitUnderscore = /([^a-zA-Z0-9_])/;
+  name = name.replace(notAlphaDigitUnderscore, '_');
+  // TODO: first char. length limit
+
   return prefix.concat(name).join("_");
 }
 
